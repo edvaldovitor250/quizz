@@ -122,3 +122,27 @@ footer {
     color: #FFF;
     font-size: 13px;
 }
+
+.results h2 {
+    color: #333;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.results p {
+    margin-bottom: 20px;
+}
+
+.results p:last-child {
+    margin-bottom: 0;
+}
+
+.correct-answer {
+    color: green;
+    font-weight: bold;
+}
+
+.incorrect-answer {
+    color: red;
+    font-weight: bold;
+}

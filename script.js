@@ -1,11 +1,14 @@
 // Initial Data
 let currentQuestion = 0;
 let correctAnswer = 0;
+let userAnswers = []; 
+
 
 showQuestion();
 
 // Events
-document.querySelector('.scoreArea button').addEventListener('click', resetEvent)
+document.querySelector('.resetAll').addEventListener('click', resetEvent)
+document.querySelector('.results').addEventListener('click', seePoints)
 
 // Function
 function showQuestion() {
@@ -77,4 +80,28 @@ function resetEvent() {
     correctAnswer = 0
     currentQuestion = 0
     showQuestion()
+}
+
+function showResults() {
+    let resultHTML = '<h2>Resultados:</h2>';
+    
+    for (let i = 0; i < questions.length; i++) {
+        let q = questions[i];
+        let userAnswerIndex = userAnswers[i];
+        let correctAnswerIndex = q.answer;
+        
+        let result = userAnswerIndex === correctAnswerIndex ? 'Correto' : 'Incorreto';
+        
+        resultHTML += `<p>Pergunta ${i + 1}: ${q.question}<br>
+                       Sua resposta: ${q.options[userAnswerIndex]}<br>
+                       Resposta correta: ${q.options[correctAnswerIndex]}<br>
+                       Resultado: ${result}</p>`;
+    }
+    
+    document.querySelector('.results').innerHTML = resultHTML;
+}
+
+function seePoints() {
+    showResults();
+    document.querySelector('.results').style.display = 'block';
 }
