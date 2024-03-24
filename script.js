@@ -5,7 +5,7 @@ let correctAnswer = 0;
 showQuestion();
 
 // Events
-document.querySelector('.scoreArea button').addEventListener('click',resetEvent)
+document.querySelector('.scoreArea button').addEventListener('click', resetEvent)
 
 // Function
 function showQuestion() {
@@ -51,21 +51,21 @@ function optionClickEvent(e) {
 }
 
 function finishQuiz() {
-    let points = Math.floor((correctAnswer / questions.length) *100)
-    
-    if(points < 30){
-        document.querySelector('.scoreText1').innerHTML= `Tá ruim em!!`
+    let points = Math.floor((correctAnswer / questions.length) * 100)
+
+    if (points < 30) {
+        document.querySelector('.scoreText1').innerHTML = `Tá ruim em!!`
         document.querySelector('.scorePct').style.color = '#FF0000'
-    } else if(points>=30 && points <70){
-        document.querySelector('.scoreText1').innerHTML= `Muito bom!`
+    } else if (points >= 30 && points < 70) {
+        document.querySelector('.scoreText1').innerHTML = `Muito bom!`
         document.querySelector('.scorePct').style.color = '#FFFF00'
     } else if (points >= 70) {
-        document.querySelector('.scoreText1').innerHTML= `Parabéns, Você foi ótimo`
+        document.querySelector('.scoreText1').innerHTML = `Parabéns, Você foi ótimo`
         document.querySelector('.scorePct').style.color = '#0D630D'
     }
-    
+
     document.querySelector('.scorePct').innerHTML = `Acertou ${points}%`
-    document.querySelector('.scoreText2').innerHTML= `Você respondeu ${questions.length} questões e acertou ${correctAnswer}`
+    document.querySelector('.scoreText2').innerHTML = `Você respondeu ${questions.length} questões e acertou ${correctAnswer}`
 
     document.querySelector('.scoreArea').style.display = 'block';
     document.querySelector('.questionArea').style.display = 'none';
